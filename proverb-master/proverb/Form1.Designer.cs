@@ -70,7 +70,6 @@
             label1.Size = new Size(179, 41);
             label1.TabIndex = 1;
             label1.Text = "속담 맞추기";
-            label1.Click += label1_Click;
             // 
             // button1
             // 

@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace proverb
 {
+    /// <summary>
+    /// 스테이지 화면
+    /// </summary>
     public partial class Form2 : Form
     {
         private int selectedLevel;
@@ -17,6 +20,11 @@ namespace proverb
         private string[] quiz;
         private string[] result;
 
+        /// <summary>
+        /// 생성자 함수
+        /// </summary>
+        /// <param name="frm1"></param>
+        /// <param name="selectedLevel"></param>
         public Form2(Form1 frm1, int selectedLevel = 1)
         {
             InitializeComponent();
@@ -25,6 +33,11 @@ namespace proverb
             this.Text = selectedLevel + "스테이지";
         }
 
+        /// <summary>
+        /// 폼 열림 이벤트 함수
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Form2_Load(object sender, EventArgs e)
         {
             string[] quiz = {
@@ -104,16 +117,31 @@ namespace proverb
             this.ActiveControl = textBox1;
         }
 
+        /// <summary>
+        /// 폼 닫힘 이벤트 함수
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Form2_FormClosing(object sender, FormClosingEventArgs e)
         {
             frm1.Show();
         }
 
+        /// <summary>
+        /// 입력버튼 클릭 이벤트 함수
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             CheckResult(textBox1.Text);
         }
 
+        /// <summary>
+        /// 텍스트박스 키 입력 이벤트 함수(엔터 체크)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)
@@ -124,10 +152,11 @@ namespace proverb
 
         }
 
+
         /// <summary>
         /// 정답 체크 메서드
         /// </summary>
-        /// <param name="answered"></param>
+        /// <param name="answered"></param>        
         private void CheckResult(string answered)
         {
             string rslt = result[selectedLevel - 1].Replace(" ", "").Replace(",", "");
